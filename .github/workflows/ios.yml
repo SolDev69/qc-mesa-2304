@@ -7,7 +7,7 @@ on:
 jobs:
   build:
 
-    name: "Build for ${{matrix.arch}}"
+    name: "Build for iOS"
 
     runs-on: macos-latest
 
@@ -29,8 +29,9 @@ jobs:
 
       - name: Build
         run: |
-          sudo apt update
-          sudo apt install -y meson libxrandr-dev libxxf86vm-dev libxcb-*-dev libx11-xcb-dev libxfixes-dev libdrm-dev libx11-dev
+          brew install meson pkg-config
+          git clone --depth 1 https://github.com/KhronosGroup/MoltenVK
+          ln -s vulkan_ios.pc vulkan.pc
           meson setup "build-ios" \
             --prefix=/tmp/zink \
             --cross-file ios-aarch64 \
