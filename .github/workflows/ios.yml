@@ -2,7 +2,7 @@ name: Build iOS
 
 on:
   workflow_dispatch:
-  
+
   push:
 
 jobs:
@@ -35,7 +35,6 @@ jobs:
 
     - name: Build Mesa
       run: |
-        cd ${{ matrix.directory }}
         meson setup build -Dgallium-drivers=zink,swrast -Dosmesa=true -Dvulkan-drivers= --prefix=~/mesa-drivers -Dmoltenvk-dir=${{ env.VULKAN_SDK }}
         pwd
         ls
