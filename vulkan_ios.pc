@@ -1,0 +1,4 @@
+Name: vulkan
+Description: MoltenVK library
+Version: 1.2
+Libs: -L/Users/runner/work/qc-mesa-2304/qc-mesa-2304/ext -lMoltenVK
