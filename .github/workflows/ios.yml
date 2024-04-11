@@ -29,7 +29,7 @@ jobs:
 
       - name: Build
         run: |
-          brew install meson pkg-config libxcb
+          brew install meson pkg-config libxcb xcb-proto
           git clone --depth 1 https://github.com/KhronosGroup/MoltenVK
           ln -s vulkan_ios.pc vulkan.pc
           meson setup "build-ios" \
