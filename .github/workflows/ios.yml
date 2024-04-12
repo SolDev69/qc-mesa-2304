@@ -35,18 +35,11 @@ jobs:
 
     - name: Build Mesa
       run: |
-        meson setup build -Dgallium-drivers=zink,swrast -Dosmesa=true -Dvulkan-drivers= --prefix=~/mesa-drivers -Dmoltenvk-dir=${{ env.VULKAN_SDK }}
+        meson setup build -Dgallium-drivers=zink,swrast -Dosmesa=true -Dvulkan-drivers= --prefix=/tmp/zink -Dmoltenvk-dir=${{ env.VULKAN_SDK }}
         pwd
         ls
         tree
         ninja -C build/ install
-
-    - name: Upload meson logs
-      if: ${{ failure() }}
-      uses: actions/upload-artifact@v4
-      with:
-        name: meson-logs-${{ matrix.directory }}
-        path: ${{ matrix.directory }}/build/meson-logs/meson-log.txt
 
     - name: "Upload tree"
       if: ${{ failure() }}
@@ -59,4 +52,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: built
-        path: ~/mesa-drivers
+        path: /tmp/zink
