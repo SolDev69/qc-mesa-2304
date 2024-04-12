@@ -35,18 +35,11 @@ jobs:
 
     - name: Build Mesa
       run: |
-        #meson setup build -Dgallium-drivers=zink,swrast -Dosmesa=true -Dvulkan-drivers= --prefix=/tmp/zink -Dmoltenvk-dir=../../../../../usr/local/Cellar/molten-vk/1.2.7
+        meson setup build -Dgallium-drivers=zink,swrast -Dosmesa=true -Dvulkan-drivers= --prefix=/tmp/zink -Dmoltenvk-dir=../../../../../usr/local/Cellar/molten-vk/1.2.7
         pwd
         ls
         tree
         ninja -C build/ install
-
-    - name: "Upload tree"
-      if: ${{ failure() }}
-      uses: actions/upload-artifact@v4
-      with:
-        name: tree
-        path: file.txt
 
     - name: "Upload installed mesa"
       uses: actions/upload-artifact@v4
