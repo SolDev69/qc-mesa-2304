@@ -36,9 +36,8 @@ jobs:
 
     - name: Build Mesa
       run: |
-        find /usr/local/Cellar/molten-vk | grep include
-        sudo cp /usr/local/Cellar/molten-vk/1.2.7 mvk/ 
-        meson setup build -Dgallium-drivers=zink,swrast -Dosmesa=true -Dvulkan-drivers= --prefix=/tmp/zink -Dmoltenvk-dir=mvk -Dllvm=disabled
+        git clone https://github.com/KhronosGroup/MoltenVK
+        meson setup build -Dgallium-drivers=zink,swrast -Dosmesa=true -Dvulkan-drivers= --prefix=/tmp/zink -Dmoltenvk-dir=MoltenVK
         pwd
         ls
         tree
