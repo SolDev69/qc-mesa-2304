@@ -35,7 +35,8 @@ jobs:
 
     - name: Build Mesa
       run: |
-        meson setup build -Dgallium-drivers=zink,swrast -Dosmesa=true -Dvulkan-drivers= --prefix=/tmp/zink -Dmoltenvk-dir=../../../../../usr/local/Cellar/molten-vk/1.2.7
+        sudo ln -s /usr/local/Cellar/molten-vk/1.2.7 mvk/
+        meson setup build -Dgallium-drivers=zink,swrast -Dosmesa=true -Dvulkan-drivers= --prefix=/tmp/zink -Dmoltenvk-dir=mvk
         pwd
         ls
         tree
