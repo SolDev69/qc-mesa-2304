@@ -38,7 +38,7 @@ jobs:
       run: |
         git clone https://github.com/KhronosGroup/MoltenVK
         find MoltenVK
-        meson setup build -Dgallium-drivers=zink,swrast -Dosmesa=true -Dvulkan-drivers= --prefix=/tmp/zink -Dmoltenvk-dir=MoltenVK
+        meson setup build -Dgallium-drivers=zink,swrast -Dosmesa=true -Dvulkan-drivers= --prefix=/tmp/zink -Dmoltenvk-dir=MoltenVK/MoltenVK
         pwd
         ls
         tree
