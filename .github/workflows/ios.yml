@@ -36,9 +36,7 @@ jobs:
 
     - name: Build Mesa
       run: |
-        wget https://github.com/KhronosGroup/MoltenVK/releases/download/v1.2.8/MoltenVK-ios.tar
-        tar -xvf MoltenVK-ios.tar
-        meson setup build -Dgallium-drivers=zink,swrast -Dosmesa=true -Dvulkan-drivers= --prefix=/tmp/zink -Dmoltenvk-dir=MoltenVK/MoltenVK
+        meson setup build -Dgallium-drivers=zink,swrast -Dosmesa=true -Dvulkan-drivers= --prefix=/tmp/zink -Dmoltenvk-dir=/usr/local/Cellar/molten-vk/1.2.7
         pwd
         ls
         tree
